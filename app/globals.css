@@ -1,0 +1,229 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Light theme tuned to Gmail/Notion-like palette */
+  /* Cooler light background */
+  --background: oklch(0.985 0.012 240);
+  --foreground: oklch(0.18 0.01 240);
+  /* Cards and popovers are pure white with soft foreground */
+  --card: oklch(0.999 0 0);
+  --card-foreground: var(--foreground);
+  --popover: var(--card);
+  --popover-foreground: var(--foreground);
+  /* Keep primary as-is for brand actions */
+  --primary: oklch(0.5 0.18 240);
+  --primary-foreground: oklch(1 0 0);
+  /* Muted/secondary surfaces for chips, hovers, and side UI */
+  --secondary: oklch(0.972 0.012 240);
+  --secondary-foreground: oklch(0.22 0.01 240);
+  --muted: oklch(0.965 0.011 240);
+  --muted-foreground: oklch(0.52 0.01 240);
+  /* Accents align with primary hue */
+  --accent: oklch(0.52 0.18 240);
+  --accent-foreground: oklch(1 0 0);
+  /* Borders a touch softer for a premium feel */
+  --border: oklch(0.93 0.008 240);
+  --input: oklch(0.975 0.01 240);
+  --ring: oklch(0.55 0.16 240);
+  /* Charts unchanged */
+  --chart-1: oklch(0.5 0.18 240);
+  --chart-2: oklch(0.6 0.15 160);
+  --chart-3: oklch(0.65 0.15 130);
+  --chart-4: oklch(0.55 0.18 40);
+  --chart-5: oklch(0.5 0.18 270);
+  /* Slightly larger rounding for cardy feel */
+  --radius: 0.5rem;
+  /* Sidebar slightly brighter than bg for separation */
+  --sidebar: oklch(0.99 0.004 240);
+  --sidebar-foreground: var(--foreground);
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: var(--primary-foreground);
+  --sidebar-accent: oklch(0.975 0.008 240);
+  --sidebar-accent-foreground: var(--secondary-foreground);
+  --sidebar-border: oklch(0.92 0.008 240);
+  --sidebar-ring: var(--ring);
+}
+
+/* Dark theme */
+.dark {
+  /* Deep neutral slate background with high legibility foreground */
+  --background: oklch(0.14 0.01 260);
+  --foreground: oklch(0.92 0.01 260);
+  /* Cards slightly lifted above background */
+  --card: oklch(0.18 0.01 260);
+  --card-foreground: var(--foreground);
+  --popover: var(--card);
+  --popover-foreground: var(--foreground);
+  /* Keep primary hue; nudge for dark contrast */
+  --primary: oklch(0.62 0.18 240);
+  --primary-foreground: oklch(0.1 0 0);
+  /* Muted/secondary for rails and chips */
+  --secondary: oklch(0.2 0.01 260);
+  --secondary-foreground: oklch(0.86 0.01 260);
+  --muted: oklch(0.22 0.01 260);
+  --muted-foreground: oklch(0.75 0.008 260);
+  /* Accents align with primary */
+  --accent: oklch(0.62 0.18 240);
+  --accent-foreground: oklch(0.1 0 0);
+  /* Softer borders for dark */
+  --border: oklch(0.28 0.008 260);
+  --input: oklch(0.2 0.008 260);
+  --ring: oklch(0.7 0.16 240);
+  /* Charts unchanged */
+  --chart-1: oklch(0.62 0.18 240);
+  --chart-2: oklch(0.64 0.15 160);
+  --chart-3: oklch(0.68 0.15 130);
+  --chart-4: oklch(0.6 0.18 40);
+  --chart-5: oklch(0.6 0.18 270);
+  --radius: 0.5rem;
+  /* Sidebar darker rail */
+  --sidebar: oklch(0.17 0.01 260);
+  --sidebar-foreground: var(--foreground);
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: var(--primary-foreground);
+  --sidebar-accent: oklch(0.22 0.01 260);
+  --sidebar-accent-foreground: var(--secondary-foreground);
+  --sidebar-border: oklch(0.28 0.008 260);
+  --sidebar-ring: var(--ring);
+}
+
+@theme inline {
+  --font-sans: "Geist", "Geist Fallback";
+  --font-mono: "Geist Mono", "Geist Mono Fallback";
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 4px);
+  --radius-xl: calc(var(--radius) + 8px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@keyframes particle-burst {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--tx), var(--ty)) scale(0);
+  }
+}
+
+@keyframes skeleton-pulse {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glow-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(79, 102, 251, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(79, 102, 251, 0);
+  }
+}
+
+.particle {
+  animation: particle-burst 0.6s ease-out forwards;
+  pointer-events: none;
+}
+
+.skeleton {
+  animation: shimmer 2s infinite;
+  background: linear-gradient(90deg, var(--muted) 25%, var(--card) 50%, var(--muted) 75%);
+  background-size: 1000px 100%;
+}
+
+.spring-enter {
+  animation: fade-in-up 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.glow-pulse {
+  animation: glow-pulse 2s infinite;
+}
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--muted) transparent;
+}
+
+html::-webkit-scrollbar {
+  width: 8px;
+}
+
+html::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: var(--muted);
+  border-radius: 4px;
+}
